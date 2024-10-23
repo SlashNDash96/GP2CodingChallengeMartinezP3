@@ -1,11 +1,11 @@
 ﻿using System;
-
+using System.ComponentModel;
 class Challenges
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one.");
 
+        Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one.");
         Console.WriteLine("Today we are going to use the number adder called SUM. PLease put two numbers for us to add. \n");
 
         var number1 = Console.ReadLine();
@@ -62,6 +62,16 @@ class Challenges
         int number10int = int.Parse(number10);
 
         Console.WriteLine("The number entered is" + LessThanOrEqualToZero(number10int));
+
+        Console.WriteLine("Let's add two numbers, and see if they're less than 100. \nPlease input the first number");
+        var number11 = Console.ReadLine();
+        int number11int = int.Parse(number11);
+
+        Console.WriteLine("Cool! Now enter the second number");
+        var number12 = Console.ReadLine();
+        int number12int = int.Parse(number12);
+
+        Console.WriteLine("The sum of the numbers entered is" + LessThanOneHundred(number11int, number12int));
     }
 
 
@@ -98,6 +108,11 @@ class Challenges
 
     public static bool LessThanOrEqualToZero(int number10)
     {
-        return number10 >= 0;
+        return number10 <= 0;
+    }
+
+    public static bool LessThanOneHundred(int number11, int number12)
+    {
+        return number11 + number12 <= 100;
     }
 }
