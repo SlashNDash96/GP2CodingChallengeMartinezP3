@@ -67,11 +67,21 @@ class Challenges
         var number11 = Console.ReadLine();
         int number11int = int.Parse(number11);
 
-        Console.WriteLine("Cool! Now enter the second number");
+        Console.WriteLine("Cool! Now enter the second number.");
         var number12 = Console.ReadLine();
         int number12int = int.Parse(number12);
 
         Console.WriteLine("The sum of the numbers entered is" + LessThanOneHundred(number11int, number12int));
+
+        Console.WriteLine("Now let's enter two numbers to see if they are equal. \n Enter the first number.");
+        var number13 = Console.ReadLine();
+        int number13int = int.Parse(number13);
+
+        Console.WriteLine("Fantastic! Now insert the second number.");
+        var number14 = Console.ReadLine();
+        int number14int = int.Parse(number14);
+
+        Console.WriteLine("The numbers entered are" + NumbersEqualTo(number13int, number14int));
     }
 
 
@@ -113,6 +123,11 @@ class Challenges
 
     public static bool LessThanOneHundred(int number11, int number12)
     {
-        return number11 + number12 <= 100;
+        return number11 + number12 < 100;
+    }
+
+    public static bool NumbersEqualTo(int number13, int number14)
+    {
+        return number13 == number14;
     }
 }
