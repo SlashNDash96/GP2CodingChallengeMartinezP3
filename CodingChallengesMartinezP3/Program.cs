@@ -4,130 +4,146 @@ class Challenges
 {
     public static void Main(string[] args)
     {
+        Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one by entering the corresponding number.");
 
-        Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one.");
-        Console.WriteLine("Today we are going to use the number adder called SUM. PLease put two numbers for us to add. \n");
+        Console.WriteLine("1: SUM - Add two numbers");
+        Console.WriteLine("2: Convert minutes to seconds");
+        Console.WriteLine("3: Add one to a number");
+        Console.WriteLine("4: Calculate power using voltage and current");
+        Console.WriteLine("5: Calculate age in days");
+        Console.WriteLine("6: Calculate the area of a triangle");
+        Console.WriteLine("7: Check if a number is less than or equal to zero");
+        Console.WriteLine("8: Check if the sum of two numbers is less than 100");
+        Console.WriteLine("9: Check if two numbers are equal");
+        Console.WriteLine("10: Give me something");
+        Console.WriteLine("0: Exit");
 
-        var number1 = Console.ReadLine();
-        int number1int = int.Parse(number1);
+        while (true)
+        {
+            Console.WriteLine("\nEnter your choice (0 to exit):");
+            var choice = Console.ReadLine();
 
-        Console.WriteLine("Awesome! Please input a second number!");
+            if (choice == "0")
+            {
+                break;
+            }
 
-        var number2 = Console.ReadLine();
-        int number2int = int.Parse(number2);
-
-        Console.WriteLine("The sum of the number" + number1 + " and the number: " + number2 + "is equal to:" + Sum(number1int, number2int));
-        Sum(number1int, number2int);
-
-        Console.WriteLine("Let's try converting minutes to seconds. \nGive me a number to convert from minutes to seconds");
-
-        var number3 = Console.ReadLine();
-        int number3int = int.Parse(number3);
-      
-        Console.WriteLine(number3 + "minutes converted to seconds is" + Convert(number3int) + "seconds");
-
-        Console.WriteLine("Let's try adding a number by 1. \nPlease insert a number to add 1 to.");
-        var number4 = Console.ReadLine();
-        int numberint = int.Parse(number4);
-
-        Console.WriteLine(number4 + "plus one is" + PlusOne(numberint));
-
-        Console.WriteLine("Let's try to calculate power using volatge and current. \nPLease enter the voltage.");
-        var number5 = Console.ReadLine();
-        int number5int = int.Parse(number5);
-
-        Console.WriteLine("Perfect! Now insert the current");
-        var number6 = Console.ReadLine();
-        int number6int = int.Parse(number6);    
-        Console.WriteLine("The power of" + number5 + "and" + number6 + "are equal to:" + CircuitPower(number5int, number6int));
-
-        Console.WriteLine("Let's calculate someone's age in days. \nPlease enter an age");
-        var number7 = Console.ReadLine();
-        int number7int = int.Parse(number7);
-
-        Console.WriteLine("You are" + CalcAge(number7int) + "days old");
-
-        Console.WriteLine("Let's calculate the area of a triangle using the base and height. \nEnter the height of the triangle.");
-        var number8 = Console.ReadLine();
-        float number8int = int.Parse(number8);
-
-        Console.WriteLine("Nice! Now enter the base of the triangle.");
-        var number9 = Console.ReadLine();
-        float number9int = int.Parse(number9);
-
-        Console.WriteLine("The area of the triangle is" + TriAge(number8int, number9int));
-
-        Console.WriteLine("Now let's see if a number is less than or equal to zero. \nPLease input a number");
-        var number10 = Console.ReadLine();
-        int number10int = int.Parse(number10);
-
-        Console.WriteLine("The number entered is" + LessThanOrEqualToZero(number10int));
-
-        Console.WriteLine("Let's add two numbers, and see if they're less than 100. \nPlease input the first number");
-        var number11 = Console.ReadLine();
-        int number11int = int.Parse(number11);
-
-        Console.WriteLine("Cool! Now enter the second number.");
-        var number12 = Console.ReadLine();
-        int number12int = int.Parse(number12);
-
-        Console.WriteLine("The sum of the numbers entered is" + LessThanOneHundred(number11int, number12int));
-
-        Console.WriteLine("Now let's enter two numbers to see if they are equal. \n Enter the first number.");
-        var number13 = Console.ReadLine();
-        int number13int = int.Parse(number13);
-
-        Console.WriteLine("Fantastic! Now insert the second number.");
-        var number14 = Console.ReadLine();
-        int number14int = int.Parse(number14);
-
-        Console.WriteLine("The numbers entered are" + NumbersEqualTo(number13int, number14int));
+            switch (choice)
+            {
+                case "1":
+                    PerformSum();
+                    break;
+                case "2":
+                    ConvertMinutesToSeconds();
+                    break;
+                case "3":
+                    AddOne();
+                    break;
+                case "4":
+                    CalculatePower();
+                    break;
+                case "5":
+                    CalculateAge();
+                    break;
+                case "6":
+                    CalculateTriangleArea();
+                    break;
+                case "7":
+                    CheckLessThanOrEqualToZero();
+                    break;
+                case "8":
+                    CheckLessThanOneHundred();
+                    break;
+                case "9":
+                    CheckNumbersEqualTo();
+                    break;
+                default:
+                    Console.WriteLine("Invalid option, please choose a valid function.");
+                    break;
+            }
+        }
     }
 
-
-    public static int Sum(int number1, int number2)
+    static void PerformSum()
     {
-        return number1 + number2;
+        Console.WriteLine("Please put two numbers for us to add.");
+        int number1 = int.Parse(Console.ReadLine());
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The sum of {number1} and {number2} is: {Sum(number1, number2)}");
     }
 
-    public static int Convert(int number3)
+    static void ConvertMinutesToSeconds()
     {
-        return number3 * 60;
-
+        Console.WriteLine("Give me a number to convert from minutes to seconds:");
+        int minutes = int.Parse(Console.ReadLine());
+        Console.WriteLine($"{minutes} minutes converted to seconds is: {Convert(minutes)} seconds");
     }
 
-    public static int PlusOne(int number4)
+    static void AddOne()
     {
-        return number4 + 1;
+        Console.WriteLine("Please insert a number to add 1 to:");
+        int number = int.Parse(Console.ReadLine());
+        Console.WriteLine($"{number} plus one is: {PlusOne(number)}");
     }
 
-    public static int CircuitPower(int number5, int number6)
+    static void CalculatePower()
     {
-        return number5 * number6;
+        Console.WriteLine("Please enter the voltage:");
+        int voltage = int.Parse(Console.ReadLine());
+        Console.WriteLine("Now insert the current:");
+        int current = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The power of {voltage} and {current} is equal to: {CircuitPower(voltage, current)}");
     }
 
-    public static int CalcAge(int number7)
+    static void CalculateAge()
     {
-        return number7 * 356;
+        Console.WriteLine("Please enter an age:");
+        int age = int.Parse(Console.ReadLine());
+        Console.WriteLine($"You are {CalcAge(age)} days old.");
     }
 
-    public static float TriAge(float number8, float number9)
+    static void CalculateTriangleArea()
     {
-        return (number8 * number9) / 2;
+        Console.WriteLine("Enter the height of the triangle:");
+        float height = float.Parse(Console.ReadLine());
+        Console.WriteLine("Now enter the base of the triangle:");
+        float baseLength = float.Parse(Console.ReadLine());
+        Console.WriteLine($"The area of the triangle is: {TriAge(height, baseLength)}");
     }
 
-    public static bool LessThanOrEqualToZero(int number10)
+    static void CheckLessThanOrEqualToZero()
     {
-        return number10 <= 0;
+        Console.WriteLine("Please input a number:");
+        int number = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The number entered is less than or equal to zero: {LessThanOrEqualToZero(number)}");
     }
 
-    public static bool LessThanOneHundred(int number11, int number12)
+    static void CheckLessThanOneHundred()
     {
-        return number11 + number12 < 100;
+        Console.WriteLine("Please input the first number:");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Now enter the second number:");
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The sum of the numbers entered is less than 100: {LessThanOneHundred(number1, number2)}");
     }
 
-    public static bool NumbersEqualTo(int number13, int number14)
+    static void CheckNumbersEqualTo()
     {
-        return number13 == number14;
+        Console.WriteLine("Enter the first number:");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Now insert the second number:");
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The numbers entered are equal: {NumbersEqualTo(number1, number2)}");
     }
+
+    public static int Sum(int number1, int number2) => number1 + number2;
+    public static int Convert(int number) => number * 60;
+    public static int PlusOne(int number) => number + 1;
+    public static int CircuitPower(int voltage, int current) => voltage * current;
+    public static int CalcAge(int years) => years * 365;
+    public static float TriAge(float height, float baseLength) => (height * baseLength) / 2;
+    public static bool LessThanOrEqualToZero(int number) => number <= 0;
+    public static bool LessThanOneHundred(int number1, int number2) => (number1 + number2) < 100;
+    public static bool NumbersEqualTo(int number1, int number2) => number1 == number2;
+
 }
