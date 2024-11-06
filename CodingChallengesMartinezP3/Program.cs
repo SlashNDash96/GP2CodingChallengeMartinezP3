@@ -2,6 +2,7 @@
 using System.ComponentModel;
 class Challenges
 {
+  
     public static void Main(string[] args)
     {
         Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one by entering the corresponding number.");
@@ -57,11 +58,21 @@ class Challenges
                 case "9":
                     CheckNumbersEqualTo();
                     break;
+                case "10":
+                    GiveMeSomething();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
+    }
+
+    static void GiveMeSomething()
+    {
+        Console.WriteLine("Please provide a string to join with 'something':");
+        string input = Console.ReadLine();
+        Console.WriteLine($"something {input}");
     }
 
     static void PerformSum()
@@ -145,5 +156,4 @@ class Challenges
     public static bool LessThanOrEqualToZero(int number) => number <= 0;
     public static bool LessThanOneHundred(int number1, int number2) => (number1 + number2) < 100;
     public static bool NumbersEqualTo(int number1, int number2) => number1 == number2;
-
 }
