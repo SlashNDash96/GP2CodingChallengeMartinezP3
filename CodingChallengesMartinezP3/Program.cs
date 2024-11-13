@@ -7,7 +7,7 @@ class Challenges
         {
             Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one by entering the corresponding number.");
 
-            Console.WriteLine("1: SUM - Add two numbers");
+            Console.WriteLine("1: Sum - Add two numbers");
             Console.WriteLine("2: Convert minutes to seconds");
             Console.WriteLine("3: Add one to a number");
             Console.WriteLine("4: Calculate power using voltage and current");
@@ -19,6 +19,7 @@ class Challenges
             Console.WriteLine("10: Give me something");
             Console.WriteLine("11: Reverse a boolean value");
             Console.WriteLine("12: Convert hours to seconds");
+            Console.WriteLine("13: Return the sum of a polygon");
             Console.WriteLine("0: Exit");
 
             while (true)
@@ -68,6 +69,9 @@ class Challenges
                         break;
                     case "12":
                         ConvertHoursToSeconds();  
+                        break;
+                    case "13":
+                        SumPolygon();
                         break;
                     default:
                         Console.WriteLine("Invalid option, please choose a valid function.");
@@ -179,6 +183,20 @@ class Challenges
             Console.WriteLine($"{hours} hour(s) is equal to {seconds} seconds.");
         }
 
+        static void SumPolygon()
+        {
+         Console.WriteLine("Enter the number of sides of the polygon (n > 2):");
+         int n = int.Parse(Console.ReadLine());
+        if (n > 2)
+        {
+        int sumOfAngles = (n - 2) * 180;
+        Console.WriteLine($"The sum of internal angles of a {n}-sided polygon is: {sumOfAngles} degrees.");
+        }
+        else
+        {
+        Console.WriteLine("The number of sides must be greater than 2.");
+        }
+        }
         static int Sum(int number1, int number2) => number1 + number2;
          static int Convert(int number) => number * 60;
          static int PlusOne(int number) => number + 1;
