@@ -5,7 +5,21 @@ class Challenges
     public static void Main(string[] args)
     {
         {
-            Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one by entering the corresponding number.");
+            {
+                Console.WriteLine(nameString("Mubashir"));
+                Console.WriteLine(nameString("Matt"));
+                Console.WriteLine(nameString("C#"));
+            }
+
+            // Define the function that concatenates the name with "Edabit"
+            static string nameString(string name)
+            {
+                // Concatenate the input name with "Edabit" and return the result
+                string result = name + "Edabit";
+                return result;
+            }
+        }
+        Console.WriteLine("Welcome to my Coding Challenge program! There will be a variety of different functions you will \nhave to choose from. Please pick one by entering the corresponding number.");
 
             Console.WriteLine("1: Sum - Add two numbers");
             Console.WriteLine("2: Convert minutes to seconds");
@@ -20,6 +34,7 @@ class Challenges
             Console.WriteLine("11: Reverse a boolean value");
             Console.WriteLine("12: Convert hours to seconds");
             Console.WriteLine("13: Return the sum of a polygon");
+        Console.WriteLine("Return a phrase with Edabit");
             Console.WriteLine("0: Exit");
 
             while (true)
@@ -73,15 +88,29 @@ class Challenges
                     case "13":
                         SumPolygon();
                         break;
-                    default:
+                    case "14":
+                    ConcatenateNameWithEdabit();
+                    break;
+                default:
                         Console.WriteLine("Invalid option, please choose a valid function.");
                         break;
                 }
             }
         }
+    static void ConcatenateNameWithEdabit()
+    {
+        Console.WriteLine("Please enter a name to concatenate with 'Edabit':");
+        string name = Console.ReadLine();
+        string result = nameString(name);
+        Console.WriteLine($"Result: {result}");
+    }
 
+    static string nameString(string name)
+    {
+        return name + "Edabit";
+    }
 
-        static void GiveMeSomething()
+    static void GiveMeSomething()
         {
             Console.WriteLine("Please provide a string to join with 'something':");
             string input = Console.ReadLine();
