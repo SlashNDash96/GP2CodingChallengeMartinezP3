@@ -34,7 +34,7 @@ class Challenges
             Console.WriteLine("11: Reverse a boolean value");
             Console.WriteLine("12: Convert hours to seconds");
             Console.WriteLine("13: Return the sum of a polygon");
-        Console.WriteLine("Return a phrase with Edabit");
+            Console.WriteLine("14: Return a phrase with Edabit");
             Console.WriteLine("0: Exit");
 
             while (true)
