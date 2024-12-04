@@ -21,6 +21,7 @@ class Challenges
         Console.WriteLine("14: Return a phrase with Edabit");
         Console.WriteLine("15: Logical AND of two booleans");
         Console.WriteLine("16: Calculate and Return basketball points");
+        Console.WriteLine("17: Calculate perimeter of a rectangle");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -83,13 +84,27 @@ class Challenges
                 case "16":
                     CalculateBasketballPoints();
                     break;
+                case "17":
+                    CalculateRectanglePerimeter();  
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
-   
-            static void CalculateBasketballPoints()
+        static void CalculateRectanglePerimeter()
+        {
+            Console.WriteLine("Enter the length of the rectangle:");
+            int length = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the width of the rectangle:");
+            int width = int.Parse(Console.ReadLine());
+
+            int perimeter = 2 * (length + width);
+            Console.WriteLine($"The perimeter of the rectangle is: {perimeter}");
+        }
+
+        static void CalculateBasketballPoints()
             {
                 Console.WriteLine("Please enter the number of 2-pointers scored:");
                 int twoPointers = int.Parse(Console.ReadLine());
