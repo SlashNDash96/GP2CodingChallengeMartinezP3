@@ -22,6 +22,7 @@ class Challenges
         Console.WriteLine("15: Logical AND of two booleans");
         Console.WriteLine("16: Calculate and Return basketball points");
         Console.WriteLine("17: Calculate perimeter of a rectangle");
+        Console.WriteLine("18: Greet with a name");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -87,11 +88,26 @@ class Challenges
                 case "17":
                     CalculateRectanglePerimeter();  
                     break;
+                case "18":
+                    GreetWithName();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
+        static void GreetWithName()
+        {
+            Console.WriteLine("Please enter a name to greet:");
+            string name = Console.ReadLine();
+            Console.WriteLine(HelloName(name));
+        }
+
+        static string HelloName(string name)
+        {
+            return $"Hello {name}!";
+        }
+
         static void CalculateRectanglePerimeter()
         {
             Console.WriteLine("Enter the length of the rectangle:");
