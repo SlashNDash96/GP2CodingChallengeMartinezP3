@@ -25,6 +25,7 @@ class Challenges
         Console.WriteLine("18: Greet with a name");
         Console.WriteLine("19: Count animal legs");
         Console.WriteLine("20: Calculate football team points");
+        Console.WriteLine("21: Input a number to receive the corresponding month");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -99,6 +100,9 @@ class Challenges
                 case "20":
                     CalculateFootballPoints(); 
                     break;
+                case "21":
+                    NumberstoMonths();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
@@ -106,7 +110,32 @@ class Challenges
         }
     }
 
-    
+    static void NumberstoMonths()
+    {
+        Console.WriteLine("Please enter a number between 1 and 12:");
+        int num = int.Parse(Console.ReadLine());
+
+        if (num < 1 || num > 12)
+        {
+            Console.WriteLine("Invalid number. Please enter a number between 1 and 12.");
+        }
+        else
+        {
+            string monthName = GetMonthName(num);
+            Console.WriteLine($"The month corresponding to number {num} is: {monthName}");
+        }
+    }
+
+    static string GetMonthName(int num)
+    {
+        // Array of month names where index 0 = January, 1 = February, etc.
+        string[] months = {
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        };
+        return months[num - 1];  // Adjust for 0-based index
+    }
+
     static void CalculateFootballPoints()
     {
         Console.WriteLine("Please enter the number of wins:");
