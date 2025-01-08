@@ -26,6 +26,7 @@ class Challenges
         Console.WriteLine("19: Count animal legs");
         Console.WriteLine("20: Calculate football team points");
         Console.WriteLine("21: Input a number to receive the corresponding month");
+        Console.WriteLine("22: Create a function that takes an array of numbers and return both the minimum and maximum numbers.");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -98,10 +99,13 @@ class Challenges
                     CountAnimalLegs();
                     break;
                 case "20":
-                    CalculateFootballPoints(); 
+                    CalculateFootballPoints();
                     break;
                 case "21":
                     NumberstoMonths();
+                    break;
+                case "22":
+                    FindMinMax();
                     break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
@@ -110,7 +114,47 @@ class Challenges
         }
     }
 
-    static void NumberstoMonths()
+    static void FindMinMax()
+    {
+        Console.WriteLine("Please enter the numbers (separated by spaces) to find the minimum and maximum:");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+
+        try
+        {
+            int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+            int min = FindMin(numbers);
+            int max = FindMax(numbers);
+            Console.WriteLine($"The minimum number is {min} and the maximum number is {max}.");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please enter valid numbers.");
+        }
+    }
+
+    static int FindMin(int[] arr)
+    {
+        int min = arr[0];
+        foreach (int num in arr)
+        {
+            if (num < min)
+                min = num;
+        }
+        return min;
+    }
+
+    static int FindMax(int[] arr)
+    {
+        int max = arr[0];
+        foreach (int num in arr)
+        {
+            if (num > max)
+                max = num;
+        }
+        return max;
+    }
+static void NumberstoMonths()
     {
         Console.WriteLine("Please enter a number between 1 and 12:");
         int num = int.Parse(Console.ReadLine());
@@ -128,12 +172,12 @@ class Challenges
 
     static string GetMonthName(int num)
     {
-        // Array of month names where index 0 = January, 1 = February, etc.
+        
         string[] months = {
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         };
-        return months[num - 1];  // Adjust for 0-based index
+        return months[num - 1]; 
     }
 
     static void CalculateFootballPoints()
