@@ -27,6 +27,7 @@ class Challenges
         Console.WriteLine("20: Calculate football team points");
         Console.WriteLine("21: Input a number to receive the corresponding month");
         Console.WriteLine("22: Create a function that takes an array of numbers and return both the minimum and maximum numbers.");
+        Console.WriteLine("23: Get the sum of the absolute values of an array");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -107,12 +108,37 @@ class Challenges
                 case "22":
                     FindMinMax();
                     break;
+                case "23":
+                    GetAbsSum();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
     }
+    static void GetAbsSum()
+    {
+        Console.WriteLine("Please enter numbers separated by spaces to calculate the sum of their absolute values:");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+
+        try
+        {
+            int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+            int absSum = 0;
+            foreach (int num in numbers)
+            {
+                absSum += Math.Abs(num);
+            }
+            Console.WriteLine($"The sum of the absolute values is: {absSum}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please enter valid numbers.");
+        }
+    }
+
 
     static void FindMinMax()
     {
