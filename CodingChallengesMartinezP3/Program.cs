@@ -1,5 +1,7 @@
 ﻿using System;
 
+using System;
+
 class Challenges
 {
     public static void Main(string[] args)
@@ -28,6 +30,7 @@ class Challenges
         Console.WriteLine("21: Input a number to receive the corresponding month");
         Console.WriteLine("22: Create a function that takes an array of numbers and return both the minimum and maximum numbers.");
         Console.WriteLine("23: Get the sum of the absolute values of an array");
+        Console.WriteLine("24: Calculate the exponent of a base number");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -111,13 +114,41 @@ class Challenges
                 case "23":
                     GetAbsSum();
                     break;
+                case "24":
+                    CalculateExponent();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
     }
-    static void GetAbsSum()
+
+    static void CalculateExponent()
+    {
+        Console.WriteLine("Please enter the base number:");
+        int baseNum = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Now enter the exponent number:");
+        int exponent = int.Parse(Console.ReadLine());
+
+        int result = (int)Math.Pow(baseNum, exponent);
+        Console.WriteLine($"{baseNum} raised to the power of {exponent} is: {result}");
+    }
+
+
+    static int Sum(int number1, int number2) => number1 + number2;
+    static int Convert(int number) => number * 60;
+    static int PlusOne(int number) => number + 1;
+    static int CircuitPower(int voltage, int current) => voltage * current;
+    static int CalcAge(int years) => years * 365;
+    static float TriAge(float height, float baseLength) => (height * baseLength) / 2;
+    static bool LessThanOrEqualToZero(int number) => number <= 0;
+    static bool LessThanOneHundred(int number1, int number2) => (number1 + number2) < 100;
+    static bool NumbersEqualTo(int number1, int number2) => number1 == number2;
+
+
+static void GetAbsSum()
     {
         Console.WriteLine("Please enter numbers separated by spaces to calculate the sum of their absolute values:");
         string input = Console.ReadLine();
@@ -436,14 +467,4 @@ static void NumberstoMonths()
             Console.WriteLine("The number of sides must be greater than 2.");
         }
     }
-
-    static int Sum(int number1, int number2) => number1 + number2;
-    static int Convert(int number) => number * 60;
-    static int PlusOne(int number) => number + 1;
-    static int CircuitPower(int voltage, int current) => voltage * current;
-    static int CalcAge(int years) => years * 365;
-    static float TriAge(float height, float baseLength) => (height * baseLength) / 2;
-    static bool LessThanOrEqualToZero(int number) => number <= 0;
-    static bool LessThanOneHundred(int number1, int number2) => (number1 + number2) < 100;
-    static bool NumbersEqualTo(int number1, int number2) => number1 == number2;
 }
