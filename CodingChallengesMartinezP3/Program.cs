@@ -31,6 +31,7 @@ class Challenges
         Console.WriteLine("22: Create a function that takes an array of numbers and return both the minimum and maximum numbers.");
         Console.WriteLine("23: Get the sum of the absolute values of an array");
         Console.WriteLine("24: Calculate the exponent of a base number");
+        Console.WriteLine("25: Multiply all array values by the length of the array");
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -117,11 +118,49 @@ class Challenges
                 case "24":
                     CalculateExponent();
                     break;
+                case "25":
+                    MultiplyAllByLength();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
+    }
+
+    static void MultiplyAllByLength()
+    {
+        Console.WriteLine("Please enter numbers separated by spaces to multiply each value by the length of the array:");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+
+        try
+        {
+            int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+            int[] result = MultiplyByLength(numbers);
+            Console.WriteLine("The result after multiplying each value by the length of the array is:");
+            foreach (var value in result)
+            {
+                Console.WriteLine(value);
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please enter valid numbers.");
+        }
+    }
+
+    static int[] MultiplyByLength(int[] arr)
+    {
+        int length = arr.Length;
+        int[] result = new int[arr.Length];
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            result[i] = arr[i] * length;
+        }
+
+        return result;
     }
 
     static void CalculateExponent()
