@@ -1,7 +1,5 @@
 ﻿using System;
 
-using System;
-
 class Challenges
 {
     public static void Main(string[] args)
@@ -32,7 +30,10 @@ class Challenges
         Console.WriteLine("23: Get the sum of the absolute values of an array");
         Console.WriteLine("24: Calculate the exponent of a base number");
         Console.WriteLine("25: Multiply all array values by the length of the array");
+        Console.WriteLine("26: Calculate the Hamming distance between two strings");
+        Console.WriteLine("27: Swap first and last name");
         Console.WriteLine("0: Exit");
+
 
         while (true)
         {
@@ -121,14 +122,87 @@ class Challenges
                 case "25":
                     MultiplyAllByLength();
                     break;
+                case "26":
+                    CalculateHammingDistance();
+                    break;
+                    break;
+                case "27":
+                    NameShuffle();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
             }
         }
     }
+    static void NameShuffle()
+    {
+        Console.WriteLine("Enter a name (first and last name separated by a space):");
+        string name = Console.ReadLine();
 
-    static void MultiplyAllByLength()
+        string[] nameParts = name.Split(' ');
+        if (nameParts.Length == 2)
+        {
+            string firstName = nameParts[0];
+            string lastName = nameParts[1];
+            Console.WriteLine($"{lastName} {firstName}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a name with a first and last name.");
+        }
+    }
+
+
+    static void CalculateHammingDistance()
+    {
+        Console.WriteLine("Please enter the first string:");
+        string str1 = Console.ReadLine();
+
+        Console.WriteLine("Please enter the second string:");
+        string str2 = Console.ReadLine();
+
+        try
+        {
+            int distance = HammingDistance(str1, str2);
+            Console.WriteLine($"The Hamming distance between the two strings is: {distance}");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+
+    static int HammingDistance(string str1, string str2)
+    {
+        // Ensure the strings have the same length
+        if (str1.Length != str2.Length)
+        {
+            throw new ArgumentException("Strings must have the same length.");
+        }
+
+        int distance = 0;
+        for (int i = 0; i < str1.Length; i++)
+        {
+            if (str1[i] != str2[i])
+            {
+                distance++;
+            }
+        }
+        return distance;
+    }
+
+    static void PerformSum()
+    {
+        Console.WriteLine("Please put two numbers for us to add.");
+        int number1 = int.Parse(Console.ReadLine());
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine($"The sum of {number1} and {number2} is: {Sum(number1, number2)}");
+    }
+
+ 
+static void MultiplyAllByLength()
     {
         Console.WriteLine("Please enter numbers separated by spaces to multiply each value by the length of the array:");
         string input = Console.ReadLine();
@@ -394,14 +468,6 @@ static void NumberstoMonths()
         Console.WriteLine("Please provide a string to join with 'something':");
         string input = Console.ReadLine();
         Console.WriteLine($"something {input}");
-    }
-
-    static void PerformSum()
-    {
-        Console.WriteLine("Please put two numbers for us to add.");
-        int number1 = int.Parse(Console.ReadLine());
-        int number2 = int.Parse(Console.ReadLine());
-        Console.WriteLine($"The sum of {number1} and {number2} is: {Sum(number1, number2)}");
     }
 
     static void ConvertMinutesToSeconds()
