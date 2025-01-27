@@ -1,5 +1,7 @@
 ﻿using System;
 
+using System;
+
 class Challenges
 {
     public static void Main(string[] args)
@@ -32,8 +34,8 @@ class Challenges
         Console.WriteLine("25: Multiply all array values by the length of the array");
         Console.WriteLine("26: Calculate the Hamming distance between two strings");
         Console.WriteLine("27: Swap first and last name");
+        Console.WriteLine("28: Return the smaller number from two strings");
         Console.WriteLine("0: Exit");
-
 
         while (true)
         {
@@ -125,9 +127,11 @@ class Challenges
                 case "26":
                     CalculateHammingDistance();
                     break;
-                    break;
                 case "27":
                     NameShuffle();
+                    break;
+                case "28":
+                    SmallerNum();
                     break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
@@ -135,7 +139,27 @@ class Challenges
             }
         }
     }
-    static void NameShuffle()
+
+    static void SmallerNum()
+    {
+        Console.WriteLine("Please enter the first number as a string:");
+        string num1 = Console.ReadLine();
+
+        Console.WriteLine("Please enter the second number as a string:");
+        string num2 = Console.ReadLine();
+
+        string result = Smaller(num1, num2);
+        Console.WriteLine($"The smaller number is: {result}");
+    }
+
+    static string Smaller(string num1, string num2)
+    {
+        int number1 = int.Parse(num1);
+        int number2 = int.Parse(num2);
+
+        return (number1 < number2) ? num1 : num2;
+    }
+static void NameShuffle()
     {
         Console.WriteLine("Enter a name (first and last name separated by a space):");
         string name = Console.ReadLine();
