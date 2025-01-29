@@ -1,7 +1,5 @@
 ﻿using System;
 
-using System;
-
 class Challenges
 {
     public static void Main(string[] args)
@@ -35,6 +33,7 @@ class Challenges
         Console.WriteLine("26: Calculate the Hamming distance between two strings");
         Console.WriteLine("27: Swap first and last name");
         Console.WriteLine("28: Return the smaller number from two strings");
+        Console.WriteLine("29: Calculate the factorial of a number"); // Added this line for factorial option
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -133,6 +132,9 @@ class Challenges
                 case "28":
                     SmallerNum();
                     break;
+                case "29": // New case for factorial
+                    CalculateFactorial();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
                     break;
@@ -140,7 +142,31 @@ class Challenges
         }
     }
 
-    static void SmallerNum()
+    static void CalculateFactorial()
+    {
+        Console.WriteLine("Please enter a number to calculate its factorial:");
+        int number = int.Parse(Console.ReadLine());
+
+        if (number < 0)
+        {
+            Console.WriteLine("Factorial is not defined for negative numbers.");
+        }
+        else
+        {
+            long result = Factorial(number);
+            Console.WriteLine($"The factorial of {number} is: {result}");
+        }
+    }
+
+    // Factorial function
+    static long Factorial(int n)
+    {
+        if (n == 0)
+            return 1;
+        else
+            return n * Factorial(n - 1);
+    }
+static void SmallerNum()
     {
         Console.WriteLine("Please enter the first number as a string:");
         string num1 = Console.ReadLine();
