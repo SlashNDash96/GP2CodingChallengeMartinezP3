@@ -33,7 +33,8 @@ class Challenges
         Console.WriteLine("26: Calculate the Hamming distance between two strings");
         Console.WriteLine("27: Swap first and last name");
         Console.WriteLine("28: Return the smaller number from two strings");
-        Console.WriteLine("29: Calculate the factorial of a number"); // Added this line for factorial option
+        Console.WriteLine("29: Calculate the factorial of a number");
+        Console.WriteLine("30: Count vowels in a string"); // New option
         Console.WriteLine("0: Exit");
 
         while (true)
@@ -132,8 +133,11 @@ class Challenges
                 case "28":
                     SmallerNum();
                     break;
-                case "29": // New case for factorial
+                case "29":
                     CalculateFactorial();
+                    break;
+                case "30":
+                    CountVowelsInString();
                     break;
                 default:
                     Console.WriteLine("Invalid option, please choose a valid function.");
@@ -141,6 +145,29 @@ class Challenges
             }
         }
     }
+ 
+    static void CountVowelsInString()
+    {
+        Console.WriteLine("Please enter a string to count the vowels:");
+        string input = Console.ReadLine();
+        int vowelCount = CountVowels(input);
+        Console.WriteLine($"The number of vowels in the string is: {vowelCount}");
+    }
+
+    static int CountVowels(string s)
+    {
+        string vowels = "aeiouAEIOU";
+        int count = 0;
+        foreach (char c in s)
+        {
+            if (vowels.Contains(c))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     static void CalculateFactorial()
     {
